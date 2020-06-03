@@ -1,0 +1,6 @@
+framework module EPaperSDK {
+  umbrella header "EPaperSDK.h"
+
+  export *
+  module * { export * }
+}

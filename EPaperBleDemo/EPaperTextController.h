@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  EPaperTextController.h
 //  EPaperBleDemo
 //
 //  Created by Mocun on 2020/6/1.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface EPaperTextController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

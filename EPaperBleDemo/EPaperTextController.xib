@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EPaperTextController">
+            <connections>
+                <outlet property="TempImg" destination="lmt-Sy-90L" id="A2S-y1-zHH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puz-HR-wxL">
+                    <rect key="frame" x="8" y="62" width="398" height="49"/>
+                    <color key="backgroundColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="puz-HR-wxL" secondAttribute="height" multiplier="398:49" id="CVM-h1-6KE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="1.SCAN FUNCTION">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="ScanBtn:" destination="-1" eventType="touchUpInside" id="M1z-lV-i44"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tQ-K9-aO7">
+                    <rect key="frame" x="8" y="125" width="398" height="49"/>
+                    <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="0tQ-K9-aO7" secondAttribute="height" multiplier="398:49" id="aFJ-Jq-dUX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="2 ONLY CALL CONNECT BLUETOOTH MODULE">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="Connect:" destination="-1" eventType="touchUpInside" id="P6t-hJ-aPJ"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-Sy-90L">
+                    <rect key="frame" x="8" y="381" width="398" height="298.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lmt-Sy-90L" secondAttribute="height" multiplier="400:300" id="th1-B0-AHS"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pye-ZU-0qK">
+                    <rect key="frame" x="8" y="189" width="398" height="49"/>
+                    <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="3 SEND A PICTURE AFTER CALLING THE CONNECTED BLUETOOTH MODULE">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="SendImage:" destination="-1" eventType="touchUpInside" id="51P-mk-9Ps"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0u-lH-xce">
+                    <rect key="frame" x="8" y="252" width="398" height="49"/>
+                    <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="TEMPLATE GENERATED PICTURE">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="GetInformation:" destination="-1" eventType="touchUpInside" id="Bzb-sQ-ccX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncv-IT-SiY">
+                    <rect key="frame" x="8" y="315" width="398" height="49"/>
+                    <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="GET INPUT BOX OBJECT COLLECTION">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0tQ-K9-aO7" firstAttribute="top" secondItem="puz-HR-wxL" secondAttribute="bottom" constant="14" id="37B-r9-VZT"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="M0u-lH-xce" secondAttribute="trailing" constant="8" id="3Tk-ag-A7X"/>
+                <constraint firstItem="M0u-lH-xce" firstAttribute="top" secondItem="Pye-ZU-0qK" secondAttribute="bottom" constant="14" id="6OZ-Ul-ukp"/>
+                <constraint firstItem="lmt-Sy-90L" firstAttribute="trailing" secondItem="ncv-IT-SiY" secondAttribute="trailing" id="72k-5f-vC1"/>
+                <constraint firstItem="Pye-ZU-0qK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="Aq2-DR-dYG"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ncv-IT-SiY" secondAttribute="trailing" constant="8" id="KEj-9j-OKg"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="0tQ-K9-aO7" secondAttribute="trailing" constant="8" id="NTU-3P-ejF"/>
+                <constraint firstItem="0tQ-K9-aO7" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="PUU-8j-zuX"/>
+                <constraint firstItem="ncv-IT-SiY" firstAttribute="width" secondItem="ncv-IT-SiY" secondAttribute="height" multiplier="398:49" id="Rtb-iu-8l1"/>
+                <constraint firstItem="M0u-lH-xce" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="US4-Ld-jnM"/>
+                <constraint firstItem="lmt-Sy-90L" firstAttribute="top" secondItem="ncv-IT-SiY" secondAttribute="bottom" constant="17" id="Wox-Zs-Ldw"/>
+                <constraint firstItem="M0u-lH-xce" firstAttribute="width" secondItem="M0u-lH-xce" secondAttribute="height" multiplier="398:49" id="Zel-Tu-vQv"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="puz-HR-wxL" secondAttribute="trailing" constant="8" id="asP-GQ-nXV"/>
+                <constraint firstItem="Pye-ZU-0qK" firstAttribute="width" secondItem="Pye-ZU-0qK" secondAttribute="height" multiplier="398:49" id="cNz-dY-aJx"/>
+                <constraint firstItem="puz-HR-wxL" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="18" id="czR-pL-IYU"/>
+                <constraint firstItem="puz-HR-wxL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="eLW-vC-edL"/>
+                <constraint firstItem="lmt-Sy-90L" firstAttribute="leading" secondItem="ncv-IT-SiY" secondAttribute="leading" id="fi4-rU-hth"/>
+                <constraint firstItem="ncv-IT-SiY" firstAttribute="top" secondItem="M0u-lH-xce" secondAttribute="bottom" constant="14" id="iYL-kG-Kym"/>
+                <constraint firstItem="ncv-IT-SiY" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="owF-av-u0o"/>
+                <constraint firstItem="Pye-ZU-0qK" firstAttribute="top" secondItem="0tQ-K9-aO7" secondAttribute="bottom" constant="15" id="qwY-GC-cdb"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Pye-ZU-0qK" secondAttribute="trailing" constant="8" id="rgJ-HZ-p2J"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
+        </view>
+    </objects>
+</document>
