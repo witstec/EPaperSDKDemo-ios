@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,62 +47,51 @@
                         <action selector="Connect:" destination="-1" eventType="touchUpInside" id="P6t-hJ-aPJ"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-Sy-90L">
-                    <rect key="frame" x="8" y="381" width="398" height="298.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="lmt-Sy-90L" secondAttribute="height" multiplier="400:300" id="th1-B0-AHS"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pye-ZU-0qK">
                     <rect key="frame" x="8" y="189" width="398" height="49"/>
                     <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="3 SEND A PICTURE AFTER CALLING THE CONNECTED BLUETOOTH MODULE">
+                    <state key="normal" title="3 CHOSE A PICTURE">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="SendImage:" destination="-1" eventType="touchUpInside" id="51P-mk-9Ps"/>
+                        <action selector="GetInformation:" destination="-1" eventType="touchUpInside" id="yKN-N4-bNB"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0u-lH-xce">
                     <rect key="frame" x="8" y="252" width="398" height="49"/>
                     <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="TEMPLATE GENERATED PICTURE">
+                    <state key="normal" title="4 SEND A PICTURE AFTER CALLING THE CONNECTED BLUETOOTH MODULE">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="GetInformation:" destination="-1" eventType="touchUpInside" id="Bzb-sQ-ccX"/>
+                        <action selector="SendImage:" destination="-1" eventType="touchUpInside" id="1Jk-xc-x93"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncv-IT-SiY">
-                    <rect key="frame" x="8" y="315" width="398" height="49"/>
-                    <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="GET INPUT BOX OBJECT COLLECTION">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-Sy-90L">
+                    <rect key="frame" x="8" y="319" width="398" height="298.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lmt-Sy-90L" secondAttribute="height" multiplier="400:300" id="th1-B0-AHS"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="0tQ-K9-aO7" firstAttribute="top" secondItem="puz-HR-wxL" secondAttribute="bottom" constant="14" id="37B-r9-VZT"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="M0u-lH-xce" secondAttribute="trailing" constant="8" id="3Tk-ag-A7X"/>
                 <constraint firstItem="M0u-lH-xce" firstAttribute="top" secondItem="Pye-ZU-0qK" secondAttribute="bottom" constant="14" id="6OZ-Ul-ukp"/>
-                <constraint firstItem="lmt-Sy-90L" firstAttribute="trailing" secondItem="ncv-IT-SiY" secondAttribute="trailing" id="72k-5f-vC1"/>
                 <constraint firstItem="Pye-ZU-0qK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="Aq2-DR-dYG"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ncv-IT-SiY" secondAttribute="trailing" constant="8" id="KEj-9j-OKg"/>
+                <constraint firstItem="lmt-Sy-90L" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="E5G-Ct-GGx"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="0tQ-K9-aO7" secondAttribute="trailing" constant="8" id="NTU-3P-ejF"/>
                 <constraint firstItem="0tQ-K9-aO7" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="PUU-8j-zuX"/>
-                <constraint firstItem="ncv-IT-SiY" firstAttribute="width" secondItem="ncv-IT-SiY" secondAttribute="height" multiplier="398:49" id="Rtb-iu-8l1"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="lmt-Sy-90L" secondAttribute="trailing" constant="8" id="UA5-CC-Mhn"/>
                 <constraint firstItem="M0u-lH-xce" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="US4-Ld-jnM"/>
-                <constraint firstItem="lmt-Sy-90L" firstAttribute="top" secondItem="ncv-IT-SiY" secondAttribute="bottom" constant="17" id="Wox-Zs-Ldw"/>
                 <constraint firstItem="M0u-lH-xce" firstAttribute="width" secondItem="M0u-lH-xce" secondAttribute="height" multiplier="398:49" id="Zel-Tu-vQv"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="puz-HR-wxL" secondAttribute="trailing" constant="8" id="asP-GQ-nXV"/>
                 <constraint firstItem="Pye-ZU-0qK" firstAttribute="width" secondItem="Pye-ZU-0qK" secondAttribute="height" multiplier="398:49" id="cNz-dY-aJx"/>
                 <constraint firstItem="puz-HR-wxL" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="18" id="czR-pL-IYU"/>
                 <constraint firstItem="puz-HR-wxL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="eLW-vC-edL"/>
-                <constraint firstItem="lmt-Sy-90L" firstAttribute="leading" secondItem="ncv-IT-SiY" secondAttribute="leading" id="fi4-rU-hth"/>
-                <constraint firstItem="ncv-IT-SiY" firstAttribute="top" secondItem="M0u-lH-xce" secondAttribute="bottom" constant="14" id="iYL-kG-Kym"/>
-                <constraint firstItem="ncv-IT-SiY" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="owF-av-u0o"/>
+                <constraint firstItem="lmt-Sy-90L" firstAttribute="top" secondItem="M0u-lH-xce" secondAttribute="bottom" constant="18" id="fhS-aR-UWt"/>
                 <constraint firstItem="Pye-ZU-0qK" firstAttribute="top" secondItem="0tQ-K9-aO7" secondAttribute="bottom" constant="15" id="qwY-GC-cdb"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Pye-ZU-0qK" secondAttribute="trailing" constant="8" id="rgJ-HZ-p2J"/>
             </constraints>

@@ -11,11 +11,12 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 
-@interface EPaperTextController ()
+@interface EPaperTextController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 //@property (nonatomic,weak) NSTimer *codeTimer;
 @property (nonatomic,strong) NSArray *scanArr;
 @property (nonatomic,strong) CBPeripheral *peripheral;
 @property (weak, nonatomic) IBOutlet UIImageView *TempImg;
+@property (nonatomic , strong)UIImage *SendImg;
 
 @end
 
@@ -40,7 +41,8 @@
 
 
 - (IBAction)ScanBtn:(UIButton *)sender {
-   
+        
+    
         [[EPaperBlemanage shareInstance]startScanNow:^(NSArray * _Nonnull peripheralArr) {
          
            self.scanArr = peripheralArr;
@@ -70,18 +72,52 @@
 
 
 - (IBAction)GetInformation:(UIButton *)sender {
-    [[EPaperBlemanage shareInstance]refreshTemplate:@{@"id":@"001",@"data":@[@{@"type":@"qrcode",@"content":@"123456"},@{@"type":@"text",@"content":@"You are currently at table"},@{@"type":@"text",@"content":@"Welcome to digital restaurant"},@{@"type":@"text",@"content":@"Our Happy Hour begins at 22:00"},@{@"type":@"text",@"content":@"Average Watiing time is 20 min"}]} CallBackMsg:^(UIImage * _Nonnull templateImg) {
-        self.TempImg.image = templateImg;
-    }];
+
+    UIAlertController* alert = [[UIAlertController alloc]init];
+       
+       [alert addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil]];
+      
+       [alert addAction:[UIAlertAction actionWithTitle:@"album" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action){
+           UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+           imagePickerController.delegate = self;
+           imagePickerController.allowsEditing = YES;
+           //imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+           [self presentViewController:imagePickerController animated:YES completion:^{
+           }];
+       }]];
+       [self presentViewController:alert animated:YES completion:nil];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.TempImg.image = image;
+    self.SendImg = image;
 }
 
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+}
+
+//
 - (IBAction)SendImage:(UIButton *)sender {
-    [[EPaperBlemanage shareInstance]templateSend:self.peripheral InputJson:@{@"id":@"001",@"data":@[@{@"type":@"qrcode",@"content":@"123456"},@{@"type":@"text",@"content":@"You are currently at table"},@{@"type":@"text",@"content":@"Welcome to digital restaurant"},@{@"type":@"text",@"content":@"Our Happy Hour begins at 22:00"},@{@"type":@"text",@"content":@"Average Watiing time is 20 min"}]} StatusChange:^(NSString * _Nonnull status) {
+
+    //send img
+    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+        //SendSuccess
         
-    } SendError:^(NSString * _Nonnull errorCode) {
+    } Fail:^(NSString * _Nonnull errorCode) {
         
-    } SendSuccess:^(NSDictionary * _Nonnull jsons) {
+        NSLog(@"%@",errorCode);
+        if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {
+            UIAlertController* alerts = [UIAlertController alertControllerWithTitle:@"" message:@"Please select a picture of 400x300" preferredStyle:UIAlertControllerStyleAlert];
+                  
+                  [alerts addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil]];
+                 
+
+                  [self presentViewController:alerts animated:YES completion:nil];
+        }
         
     }];
 }

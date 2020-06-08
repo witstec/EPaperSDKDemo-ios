@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import"EPaperTextController.h"
 #import <EPaperSDK/EPaperBlemanage.h>
+#import"EPaperTextController.h"
+
 
 
 
@@ -21,7 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-      self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+       self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
        EPaperTextController * testvc = [EPaperTextController new];
        UINavigationController * nacc = [[UINavigationController alloc]initWithRootViewController:testvc];
        self.window.rootViewController = nacc;

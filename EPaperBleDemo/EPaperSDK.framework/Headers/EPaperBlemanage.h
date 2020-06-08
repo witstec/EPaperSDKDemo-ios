@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EPaperBlemanage : NSObject
 @property(nonatomic,strong)CBCentralManager *centralManager;
 
+
 + (instancetype)shareInstance;
 
 /**
@@ -61,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //销毁
 -(void)destroy;
+
+//图片发送
+-(void)SendImageToDevice:(CBPeripheral *)peripheral ShowImage:(UIImage*)sendImage Success:(void(^)(NSString*successCode))success Fail:(void(^)(NSString*errorCode))fail;
    
 @end
 

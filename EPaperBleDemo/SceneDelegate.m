@@ -1,4 +1,5 @@
 #import "SceneDelegate.h"
+#import "EPaperTextController.h"
 
 
 @interface SceneDelegate ()
@@ -10,7 +11,13 @@
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     
-   
+    UIWindowScene *windowScene = (UIWindowScene *)scene;
+    self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
+    self.window.frame = windowScene.coordinateSpace.bounds;
+    EPaperTextController * testvc = [EPaperTextController new];
+    UINavigationController * nacc = [[UINavigationController alloc]initWithRootViewController:testvc];
+    self.window.rootViewController = nacc;
+    [self.window makeKeyAndVisible];
     
 }
 
