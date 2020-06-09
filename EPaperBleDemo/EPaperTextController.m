@@ -56,7 +56,7 @@
     
     for (NSDictionary *dic in self.scanArr) {
         //
-        if ([dic[@"mac"] isEqualToString:@"57:54:05:2D:00:02"]) {
+        if ([dic[@"mac"] isEqualToString:@"57:54:27:5A:00:EE"]) {
             self.peripheral = [dic objectForKey:@"peripheral"];
             [[EPaperBlemanage shareInstance]Connection:self.peripheral ConnectionChange:^(NSString * _Nonnull status) {
                 
@@ -104,7 +104,7 @@
 - (IBAction)SendImage:(UIButton *)sender {
 
     //send img
-    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral Type:@"BEB029B"  ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
         //SendSuccess
         
     } Fail:^(NSString * _Nonnull errorCode) {
