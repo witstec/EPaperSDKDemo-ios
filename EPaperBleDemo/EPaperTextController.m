@@ -12,11 +12,16 @@
 
 
 @interface EPaperTextController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-//@property (nonatomic,weak) NSTimer *codeTimer;
+
 @property (nonatomic,strong) NSArray *scanArr;
 @property (nonatomic,strong) CBPeripheral *peripheral;
 @property (weak, nonatomic) IBOutlet UIImageView *TempImg;
 @property (nonatomic , strong)UIImage *SendImg;
+@property (weak, nonatomic) IBOutlet UIButton *modelone;
+@property (weak, nonatomic) IBOutlet UIButton *modeltwo;
+@property (weak, nonatomic) IBOutlet UIButton *modelthree;
+@property (nonnull ,strong) NSString *ImageModel;
+
 
 @end
 
@@ -56,7 +61,7 @@
     
     for (NSDictionary *dic in self.scanArr) {
         //
-        if ([dic[@"mac"] isEqualToString:@"57:54:27:5A:00:EE"]) {
+        if ([dic[@"mac"] isEqualToString:@"57:54:05:2D:00:02"]) {
             self.peripheral = [dic objectForKey:@"peripheral"];
             [[EPaperBlemanage shareInstance]Connection:self.peripheral ConnectionChange:^(NSString * _Nonnull status) {
                 
@@ -64,6 +69,7 @@
                 
             } ConnectionSuccess:^(Deviceinfo * _Nonnull mag) {
                 NSLog(@"%@",mag);
+                [[EPaperBlemanage shareInstance]stopCycleScan];
             }];
         }
     }
@@ -102,9 +108,16 @@
 
 //
 - (IBAction)SendImage:(UIButton *)sender {
-
-    //send img
-    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral Type:@"BEB029B"  ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+    
+    /**
+         send image
+         Peripher:Blue
+         Type:Device type
+         ImageModel:
+         ShowImage:youimage
+                   
+    */
+    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER042B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
         //SendSuccess
         
     } Fail:^(NSString * _Nonnull errorCode) {
@@ -115,11 +128,28 @@
                   
                   [alerts addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil]];
                  
-
                   [self presentViewController:alerts animated:YES completion:nil];
         }
         
     }];
+}
+- (IBAction)modelClick:(UIButton *)sender {
+    if (sender.tag == 1) {
+        self.modelone.selected = YES;
+        self.modeltwo.selected = NO;
+        self.modelthree.selected = NO;
+        self.ImageModel = @"modelone";
+    }else if (sender.tag == 2){
+        self.modelone.selected = NO;
+        self.modeltwo.selected = YES;
+        self.modelthree.selected = NO;
+        self.ImageModel = @"modeltwo";
+    }else if (sender.tag == 3){
+        self.modelone.selected = NO;
+        self.modeltwo.selected = NO;
+        self.modelthree.selected = YES;
+        self.ImageModel = @"modelthree";
+    }
 }
 
 
