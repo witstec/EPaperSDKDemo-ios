@@ -8,10 +8,6 @@
 		<data>
 		ce0hVWL32oE2yNWzgTICuNlm9qc=
 		</data>
-		<key>Headers/EPaperBlemanage.h</key>
-		<data>
-		lJV572Ezuz31cyxLshtBahxC2mk=
-		</data>
 		<key>Headers/EPaperSDK.h</key>
 		<data>
 		rrD5nzFADpSs77je1NwCzC4t3/w=
@@ -40,17 +36,6 @@
 			<key>hash2</key>
 			<data>
 			xOEdx77GdQaq3RJMBVkjk9YW8AjPs49W2lfZ6zLmnBY=
-			</data>
-		</dict>
-		<key>Headers/EPaperBlemanage.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			lJV572Ezuz31cyxLshtBahxC2mk=
-			</data>
-			<key>hash2</key>
-			<data>
-			tY0PFWEnEDMaueu4UkrGQXDEAdI17dkNQgRMFaSMRV0=
 			</data>
 		</dict>
 		<key>Headers/EPaperSDK.h</key>

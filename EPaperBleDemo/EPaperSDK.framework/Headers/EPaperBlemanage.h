@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)destroy;
 
 //图片发送
--(void)SendImageToDevice:(CBPeripheral *)peripheral Type:(NSString*)type ImageModel:(NSString*)model ShowImage:(UIImage*)sendImage Success:(void(^)(NSString*successCode))success Fail:(void(^)(NSString*errorCode))fail;
+-(void)SendImageToDevice:(CBPeripheral *)peripheral MacAddress:(NSString*)mac Type:(NSString*)type ImageModel:(NSString*)model ShowImage:(UIImage*)sendImage Success:(void(^)(NSString*successCode))success Fail:(void(^)(NSString*errorCode))fail;
    
 @end
 

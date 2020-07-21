@@ -58,7 +58,6 @@
 
 - (IBAction)Connect:(UIButton *)sender {
    
-    
     for (NSDictionary *dic in self.scanArr) {
         //
         if ([dic[@"mac"] isEqualToString:@"57:54:05:2D:00:02"]) {
@@ -117,7 +116,8 @@
          ShowImage:youimage
                    
     */
-    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER042B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+    
+    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral MacAddress:@"57:54:05:2D:00:02" Type:@"BER042B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
         //SendSuccess
         
     } Fail:^(NSString * _Nonnull errorCode) {
@@ -127,7 +127,7 @@
             UIAlertController* alerts = [UIAlertController alertControllerWithTitle:@"" message:@"Please select a picture of 400x300" preferredStyle:UIAlertControllerStyleAlert];
                   
                   [alerts addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil]];
-                 
+                  
                   [self presentViewController:alerts animated:YES completion:nil];
         }
         

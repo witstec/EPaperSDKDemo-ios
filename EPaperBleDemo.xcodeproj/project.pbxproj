@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		043E5DDA248E09D2002305B2 /* default_4.2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 043E5DC1248E09D0002305B2 /* default_4.2.xml */; };
-		04796AE02491C2D500371A10 /* EPaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04796ADF2491C2D500371A10 /* EPaperSDK.framework */; };
+		0446040524C6BA1E00CA39B6 /* EPaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0446040424C6BA1E00CA39B6 /* EPaperSDK.framework */; };
 		0489F91C24848BC200896728 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F91B24848BC200896728 /* AppDelegate.m */; };
 		0489F91F24848BC200896728 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F91E24848BC200896728 /* SceneDelegate.m */; };
 		0489F92524848BC200896728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0489F92324848BC200896728 /* Main.storyboard */; };
@@ -39,8 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		043E5DC1248E09D0002305B2 /* default_4.2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default_4.2.xml; sourceTree = "<group>"; };
-		04796ADF2491C2D500371A10 /* EPaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EPaperSDK.framework; sourceTree = "<group>"; };
+		0446040424C6BA1E00CA39B6 /* EPaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EPaperSDK.framework; sourceTree = "<group>"; };
 		0489F91724848BC200896728 /* EPaperBleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPaperBleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0489F91A24848BC200896728 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0489F91B24848BC200896728 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04796AE02491C2D500371A10 /* EPaperSDK.framework in Frameworks */,
+				0446040524C6BA1E00CA39B6 /* EPaperSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +111,7 @@
 		0489F91924848BC200896728 /* EPaperBleDemo */ = {
 			isa = PBXGroup;
 			children = (
-				04796ADF2491C2D500371A10 /* EPaperSDK.framework */,
-				043E5DC1248E09D0002305B2 /* default_4.2.xml */,
+				0446040424C6BA1E00CA39B6 /* EPaperSDK.framework */,
 				0489F91A24848BC200896728 /* AppDelegate.h */,
 				0489F91B24848BC200896728 /* AppDelegate.m */,
 				0489F91D24848BC200896728 /* SceneDelegate.h */,
@@ -263,7 +260,6 @@
 				0489F92A24848BC600896728 /* LaunchScreen.storyboard in Resources */,
 				0489F92724848BC600896728 /* Assets.xcassets in Resources */,
 				0489F92524848BC200896728 /* Main.storyboard in Resources */,
-				043E5DDA248E09D2002305B2 /* default_4.2.xml in Resources */,
 				0489F95424848CC300896728 /* EPaperTextController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
