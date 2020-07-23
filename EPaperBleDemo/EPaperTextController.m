@@ -117,21 +117,21 @@
                    
     */
     
-    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral MacAddress:@"57:54:05:2D:00:02" Type:@"BER042B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
-        //SendSuccess
-        
-    } Fail:^(NSString * _Nonnull errorCode) {
-        
-        NSLog(@"%@",errorCode);
-        if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {
-            UIAlertController* alerts = [UIAlertController alertControllerWithTitle:@"" message:@"Please select a picture of 400x300" preferredStyle:UIAlertControllerStyleAlert];
-                  
-                  [alerts addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil]];
-                  
-                  [self presentViewController:alerts animated:YES completion:nil];
-        }
-        
-    }];
+    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral MacAddress:@"57:54:27:58:00:7B" Type:@"BER029B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+           //SendSuccess
+           
+       } Fail:^(NSString * _Nonnull errorCode) {
+           
+           NSLog(@"%@",errorCode);
+           if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {
+               UIAlertController* alerts = [UIAlertController alertControllerWithTitle:@"" message:@"Please select a picture of 400x300" preferredStyle:UIAlertControllerStyleAlert];
+                     
+                     [alerts addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil]];
+                     
+                     [self presentViewController:alerts animated:YES completion:nil];
+           }
+           
+       }];
 }
 - (IBAction)modelClick:(UIButton *)sender {
     if (sender.tag == 1) {
