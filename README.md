@@ -256,3 +256,9 @@ State value       | Note       |
 --------------------|------------------|-----------------------|
   FORMAT_ERROR| Incorrect picture size |
 ERROR_TEMPLATE_SEND_TIMEOUT | Send template images to electronic price tag device timeout |
+
+
+###  About Device id (It is obtained by scanning the barcode on the back of the device)  to MacAddress 
+
+for example :This is Deviceid “2758007B” Its corresponding MACaddress is
+“57:54:27:58:00:7B” 

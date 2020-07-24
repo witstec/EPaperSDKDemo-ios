@@ -11,6 +11,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 
+
 @interface EPaperTextController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,strong) NSArray *scanArr;
@@ -46,28 +47,29 @@
 
 
 - (IBAction)ScanBtn:(UIButton *)sender {
-        
-    
         [[EPaperBlemanage shareInstance]startScanNow:^(NSArray * _Nonnull peripheralArr) {
          
            self.scanArr = peripheralArr;
-           //NSLog(@"%@",self.scanArr);
+           NSLog(@"%@",self.scanArr);
        }];
 }
 
 
 - (IBAction)Connect:(UIButton *)sender {
    
+   
     for (NSDictionary *dic in self.scanArr) {
         //
-        if ([dic[@"mac"] isEqualToString:@"57:54:27:58:00:7B"]) {
+        if ([dic[@"mac"] isEqualToString:@"57:54:05:2D:00:02"]) {
             self.peripheral = [dic objectForKey:@"peripheral"];
             [[EPaperBlemanage shareInstance]Connection:self.peripheral ConnectionChange:^(NSString * _Nonnull status) {
                 
             } ConnectionError:^(NSString * _Nonnull errorCode) {
-                
+                 NSLog(@"%@",errorCode);
+                 
             } ConnectionSuccess:^(Deviceinfo * _Nonnull mag) {
                 NSLog(@"%@",mag);
+                
                 [[EPaperBlemanage shareInstance]stopCycleScan];
             }];
         }
@@ -117,9 +119,9 @@
                    
     */
     
-    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER029B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+    [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER042B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
            //SendSuccess
-           
+        
        } Fail:^(NSString * _Nonnull errorCode) {
            
            NSLog(@"%@",errorCode);
