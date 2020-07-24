@@ -1,18 +1,18 @@
-#I. Import SDK
-##Copy the EaperSdk.framework to your project directory
+# I. Import SDK
+## Copy the EaperSdk.framework to your project directory
 Set Deployment Target to 9.0 in TARGETS
 
 Configuration SDK path
-![]()
-#II.Application Authority
 
-##Add the following two permissions info.plist the project file
+# II.Application Authority
 
-Before calling the SDK, you need to check if the Bluetooth switch is on, if there is no need to guide the user to Before calling the SDK, you need to check if the Bluetooth switch is on, if there is no need to guide the user to 
+## Add the following two permissions info.plist the project file
 
-#III. SDK interface calls
+Before calling the SDK, you need to check if the Bluetooth switch is on, if there is no need to guide the user to 
 
-##Initialization SDK
+# III. SDK interface calls
+
+## Initialization SDK
 
 ```
 2.[EPaperBlemanage shareInstance]startScanNow：^(NSArray *_Nonnull peripheralArr){
@@ -20,7 +20,7 @@ Before calling the SDK, you need to check if the Bluetooth switch is on, if ther
 4.peripheralArr;
 5.}];
 ```
-##Object parameter description peripheralArr returned data
+## Object parameter description peripheralArr returned data
 
 Parameters         | Type          | Note     |
 --------------------|------------------|-----------------------|
@@ -29,7 +29,7 @@ name       | String  | Bluetooth Device Name   |
 rssi  | string      | Equipment signal values     |
 peripheral      | CBPeripheral  | Bluetooth Connection Object    |
 
-##Stop scanning equipment
+## Stop scanning equipment
 
 Note: Stop searching for nearby devices and no longer return scan results
 
@@ -40,11 +40,11 @@ Note: Stop searching for nearby devices and no longer return scan results
 
 Method returns without result
 
-##Connection Device Interface Call
+## Connection Device Interface Call
 
 Description: Connect the device, get the device details, disconnect, check if connected, reconnect.
 
-##Connection equipment
+## Connection equipment
 
 Incoming parameter: Bluetooth connection object returned peripheral( scanning the device)
 
@@ -89,7 +89,7 @@ version      | NSString | Device Firmware Version  |
 power | Int     | Percentage of surplus equipment     |
 DeviceType     | NSString  | Type of equipment size  |
 
-##Disconnect
+## Disconnect
 
 Description: Disconnect device connection no return, need to reconnect after disconnection.
 
@@ -98,7 +98,7 @@ Description: Disconnect device connection no return, need to reconnect after dis
 2.[EPaperBlemanage shareInstance]disconnect];]
 ```
 
-##Reconnect
+## Reconnect
 
 Description: The Bluetooth connection object returned when the peripheral( scans the device), reconnects to the device.
 
@@ -107,18 +107,18 @@ Description: The Bluetooth connection object returned when the peripheral( scans
 4.[EPaperBlemanage shareInstance]connect Ag：peripheral]];
 ```
 
-##Gets the device connection state
+## Gets the device connection state
 ```
 5.// Connection Status BOOL isConnection =[ EPaperBlemanage shareInstance]isConnection];]
 ```
 
-##Send template images to device interface calls
+## Send template images to device interface calls
 
 Description: Because it is custom version SDK, so built-in template files, no need to import template files. For ease of understanding, the following is an example diagram of the display effect of a built-in template file, with five input boxes, for one QR code, four text. All you need to do is pass in the values in the input box as Json.
 
 <img src="http://api.witstec.com/Public/img/2020052601.jpg" width = 200 height = 400 />
 
-##Json Format Description
+## Json Format Description
 ###Json field description: red font is immutable value, green font is changeable value. and the values inside are sequential, data the first data corresponds to the QR code data, the second input corresponds to the first text input box,... from top to bottom, and so on.
 
 Json data examples
@@ -154,7 +154,7 @@ type  | string      | Type of input box (" qrcode "," textqrcode ")    |
 context      | String | Value of input box   |
 
 
-##Device Send Template Picture
+## Device Send Template Picture
 
 Description: send the template to the electronic price tag, after the template is sent, the electronic price tag shows the template content, please make sure the battery power is more than 30% before sending.
 
@@ -170,22 +170,22 @@ Description: send the template to the electronic price tag, after the template i
 7.}];
 ```
 
-###StatusChange ： sent procedure state returns status return value
+### StatusChange ： sent procedure state returns status return value
 
 State code        | Note         |
 --------------------|------------------|-----------------------|
 TEMPLATE_START_SEND | start sending template images to the device  |
 TEMPLATE_SEND_LOADING     | Is sending a template image to the device  | 
 TEMPLATE_SEND_SUCCESS  | Send template pictures to device successfully     | 
-TEMPLATE_REFRESH_DEVICE     | Refresh electronic price tag screen content  |
+TEMPLATE_REFRESH_DEVICE  | Refresh electronic price tag screen content  |
 TEMPLATE_REFRESH_DEVICE_SUCCESS     | Electronic price tag  |
 
-###SendError ： send failed error code
+### SendError ： send failed error code
 State code        | Note         |
 --------------------|------------------|-----------------------|
 ERROR_TEMPLATE_SEND_TIMEOUT | Send template picture timeout |
 
-##Preview Template Picture
+## Preview Template Picture
 
 Description: This interface is called when the value entering the sending template interface or the input box changes (json the value changes) and previews the template display effect
 
@@ -198,36 +198,39 @@ Description: This interface is called when the value entering the sending templa
 4.}];
 ```
 
-##Status Code and Error Code
-###StatusCode status tables
+## Status Code and Error Code
+### StatusCode status tables
 
 State value       | Note       |
 --------------------|------------------|-----------------------|
  CONNECTION_START | Connection equipment |
-CONNECTION_SUCCESS| Connection device successfully |
-CONNECTION_GET_MSG_START| Equipment information is being obtained |
- CONNECTION_GET_MSG_SUCCESS| Access to device information|
- TEMPLATE_START_SEND| Start sending templates to electronic price tag devices |
-  TEMPLATE_SEND_LOADING| A template is being sent to an electronic price tag device |
-  TEMPLATE_SEND_SUCCESS| Send template to electronic price tag device successfully |
-   TEMPLATE_REFRESH_DEVICE|Refresh the electronic tag template image'|
-   TEMPLATE_REFRESH_DEVICE_SUCCESS|Refresh the electronic tag template picture|
+CONNECTION_SUCCESS | Connection device successfully |
+CONNECTION_GET_MSG_START | Equipment information is being obtained |
+ CONNECTION_GET_MSG_SUCCESS | Access to device information |
+ TEMPLATE_START_SEND | Start sending templates to electronic price tag devices |
+  TEMPLATE_SEND_LOADING | A template is being sent to an electronic price tag device |
+  TEMPLATE_SEND_SUCCESS | Send template to electronic price tag device successfully |
+   TEMPLATE_REFRESH_DEVICE|Refresh the electronic tag template image' |
+   TEMPLATE_REFRESH_DEVICE_SUCCESS|Refresh the electronic tag template picture |
    
    
-##E rrorCode Error Error Code Matching Table
+## E rrorCode Error Error Code Matching Table
 
 
 State value       | Note       |
 --------------------|------------------|-----------------------|
- ERROR_BLE_CONNECTION_TIMEOUT| Connection Device Timeout |
-ERROR_CONNECTION_GET_DEVICE_MSG_TIMEOUT| Gets device information timeout |
-ERROR_TEMPLATE_SEND_TIMEOUT|Send template images to electronic price tag device timeout |
 
-##newly added:
+ ERROR_BLE_CONNECTION_TIMEOUT | Connection Device Timeout |
+ 
+ERROR_CONNECTION_GET_DEVICE_MSG_TIMEOUT | Gets device information timeout |
 
-###Send custom picture API
+ERROR_TEMPLATE_SEND_TIMEOUT | Send template images to electronic price tag device timeout |
 
-###Description: Send a  picture you want to the device
+## newly added:
+
+### Send custom picture API
+
+### Description: Send a  picture you want to the device
 
 **Incoming parameters**
 
@@ -247,9 +250,9 @@ ERROR_TEMPLATE_SEND_TIMEOUT|Send template images to electronic price tag device 
 8.  }]; 
 
 ```
-###Error Code 
+### Error Code 
 
 State value       | Note       |
 --------------------|------------------|-----------------------|
-  FORMAT_ERROR| Incorrect picture size | |
-ERROR_TEMPLATE_SEND_TIMEOUT|Send template images to electronic price tag device timeout |
+  FORMAT_ERROR| Incorrect picture size |
+ERROR_TEMPLATE_SEND_TIMEOUT | Send template images to electronic price tag device timeout |
