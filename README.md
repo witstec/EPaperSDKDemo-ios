@@ -1,105 +1,129 @@
-I. Import SDK
-Copy the EaperSdk.framework to your project directory
+#I. Import SDK
+##Copy the EaperSdk.framework to your project directory
 Set Deployment Target to 9.0 in TARGETS
+
 Configuration SDK path
+![]()
+#II.Application Authority
 
-Once you've configured the path, we' ll add - Objc and - all_load options to the Other Linker Flags
+##Add the following two permissions info.plist the project file
 
-二.Application Authority
-Add the following two permissions info.plist the project file
+Before calling the SDK, you need to check if the Bluetooth switch is on, if there is no need to guide the user to Before calling the SDK, you need to check if the Bluetooth switch is on, if there is no need to guide the user to 
 
-Before calling the SDK, you need to check if the Bluetooth switch is on, if there is no need to guide the user to turn on the Bluetooth and position switch, if both are on state to do a series of operations.
+#III. SDK interface calls
 
+##Initialization SDK
 
-III. SDK interface calls
-Initialization SDK
-Call the initialization method in the application method
-
-Write-offs
-Call this method at exit app
-
-1.// Cancellation
-2.[EPaperBlemanage shareInstance]destroy];]
-
-
-Scan device interface calls
-instructions: turn on bluetooth, search nearby device name "WITSTEC" bluetooth device, and get MAC address and signal strength and bluetooth connection object peripheral.
- Start scan back
-1.// Start scanning
+```
 2.[EPaperBlemanage shareInstance]startScanNow：^(NSArray *_Nonnull peripheralArr){
 3.// Result Return
 4.peripheralArr;
 5.}];
+```
+##Object parameter description peripheralArr returned data
 
-Object parameter description peripheralArr returned data
+Parameters         | Type          | Note     |
+--------------------|------------------|-----------------------|
+mac | String   | Bluetooth mac address  |
+name       | String  | Bluetooth Device Name   |
+rssi  | string      | Equipment signal values     |
+peripheral      | CBPeripheral  | Bluetooth Connection Object    |
 
-Parameters    Type    Note
-mac    String    Bluetooth mac address
-name    String    Bluetooth Device Name
-rssi    string    Equipment signal values
-peripheral    CBPeripheral    Bluetooth Connection Object
+##Stop scanning equipment
 
-
-Stop scanning equipment
 Note: Stop searching for nearby devices and no longer return scan results
 
+```
 1.// Stop scanning
 2.[EPaperBlemanage shareInstance]stopCycleScan];]
+```
 
 Method returns without result
 
-Connection Device Interface Call
+##Connection Device Interface Call
+
 Description: Connect the device, get the device details, disconnect, check if connected, reconnect.
 
-Connection equipment
+##Connection equipment
+
 Incoming parameter: Bluetooth connection object returned peripheral( scanning the device)
 
-1.[EPaperBlemanage shareInstance]Connection：self.peripheral ConnectionChange：^(NSString *_Nonnull status){
-2.// Connection Status Return
-3.} ConnectionError：^(NSString *_Nonnull errorCode){
-4.// Error Code Return
-5.} ConnectionSuccess：^(Deviceinfo *_Nonnull mag){
-6.// Successful Connection Device Information Return
-7.}];
+```
+[EPaperBlemanage shareInstance]Connection：self.peripheral ConnectionChange：^(NSString *_Nonnull status){
 
+// Connection Status Return
+
+} ConnectionError：^(NSString *_Nonnull errorCode){
+
+// Error Code Return
+
+} ConnectionSuccess：^(Deviceinfo *_Nonnull mag){
+
+// Successful Connection Device Information Return
+
+}];
+```
 ConnectionChange ： device connection state returns status returned state
-State code    Note
-CONNECTION_START    Connection equipment
-CONNECTION_SUCCESS    Device connection successfully
-CONNECTION_GET_MSG_START    Equipment information is being obtained
-CONNECTION_GET_MSG_SUCCESS    Access to device information
+
+State code        | Note         |
+--------------------|------------------|-----------------------|
+CONNECTION_START | Connection equipment  |
+CONNECTION_SUCCESS      | Device connection successfully  | 
+CONNECTION_GET_MSG_START  | Equipment information is being obtained     | 
+CONNECTION_GET_MSG_SUCCESS     | Access to device information  |
+
 
 ConnectionError ： connection failed error code errorCode returned error code
-State code    Note
-ERROR_BLE_CONNECTION_TIMEOUT    Connection Device Timeout
-ERROR_CONNECTION_GET_DEVICE_MSG_TIMEOUT    Failed to obtain device information
+
+State code        | Note         |
+--------------------|------------------|-----------------------|
+ERROR_BLE_CONNECTION_TIMEOUT | Connection Device Timeout  |
+ERROR_CONNECTION_GET_DEVICE_MSG_TIMEOUT     | Failed to obtain device information  | 
 
 ConnectionSuccess ： device information returned mag returned after successful connection
-Parameters    Type    Note
-name    NS String    Bluetooth Device Name
-version    NS String    Device Firmware Version
-power    Int    Percentage of surplus equipment
-D eviceType     NSString    Type of equipment size
 
-Disconnect
+Parameters         | Type          | Note     |
+--------------------|------------------|-----------------------|
+name | NSString  | Bluetooth Device Name  |
+version      | NSString | Device Firmware Version  |
+power | Int     | Percentage of surplus equipment     |
+DeviceType     | NSString  | Type of equipment size  |
+
+##Disconnect
+
 Description: Disconnect device connection no return, need to reconnect after disconnection.
+
+```
 1.// Disconnect
 2.[EPaperBlemanage shareInstance]disconnect];]
-Reconnect
+```
+
+##Reconnect
+
 Description: The Bluetooth connection object returned when the peripheral( scans the device), reconnects to the device.
 
+```
 3.// Reconnect
-4.[EPaperBlemanage shareInstance]connect Ag：peripheral];]
+4.[EPaperBlemanage shareInstance]connect Ag：peripheral]];
+```
 
-Gets the device connection state
+##Gets the device connection state
+```
 5.// Connection Status BOOL isConnection =[ EPaperBlemanage shareInstance]isConnection];]
-Send template images to device interface calls
+```
+
+##Send template images to device interface calls
+
 Description: Because it is custom version SDK, so built-in template files, no need to import template files. For ease of understanding, the following is an example diagram of the display effect of a built-in template file, with five input boxes, for one QR code, four text. All you need to do is pass in the values in the input box as Json.
 
-Json Format Description
-Json field description: red font is immutable value, green font is changeable value. and the values inside are sequential, data the first data corresponds to the QR code data, the second input corresponds to the first text input box,... from top to bottom, and so on.
+<img src="http://api.witstec.com/Public/img/2020052601.jpg" width = 200 height = 400 />
+
+##Json Format Description
+###Json field description: red font is immutable value, green font is changeable value. and the values inside are sequential, data the first data corresponds to the QR code data, the second input corresponds to the first text input box,... from top to bottom, and so on.
 
 Json data examples
+
+```
 {
 "id"："001",
 
@@ -120,15 +144,23 @@ Json data examples
 "content"：" the value of the fourth text in the fifth input box"
 }]
 }
+```
 
-Json parameters    Type    Note
-Id    String    Fixed to 001
-Mac    String    Equipment mac address
-type    String    Type of input box (" qrcode "," textqrcode ")
-context    String    Value of input box
-Device Send Template Picture
+Json parameters         | Type          | Note     |
+--------------------|------------------|-----------------------|
+Id | String   | Fixed to 001  |
+Mac       | String  | Equipment mac address   |
+type  | string      | Type of input box (" qrcode "," textqrcode ")    |
+context      | String | Value of input box   |
+
+
+##Device Send Template Picture
+
 Description: send the template to the electronic price tag, after the template is sent, the electronic price tag shows the template content, please make sure the battery power is more than 30% before sending.
-Interface calls incoming parameters: peripheral ,json data
+
+**Interface calls incoming parameters: peripheral ,json data**
+
+```
 1.[EPaperBlemanage shareInstance]templateSend：self.peripheral InputJson：json StatusChange：^(NSString *_Nonnull status){
 2.// Send Status Return
 3.} SendError：^(NSString *_Nonnull errorCode){
@@ -136,69 +168,88 @@ Interface calls incoming parameters: peripheral ,json data
 5.} SendSuccess：^(NSDictionary *_Nonnull jsons){
 6.// json sent successfully
 7.}];
-StatusChange ： sent procedure state returns status return value
-State code    Note
-TEMPLATE_START_SEND    Start sending template images to the device
-TEMPLATE_SEND_LOADING    Is sending a template image to the device
-TEMPLATE_SEND_SUCCESS    Send template pictures to device successfully
-TEMPLATE_REFRESH_DEVICE    Refresh electronic price tag screen content
-TEMPLATE_REFRESH_DEVICE_SUCCESS    Electronic price tag
-SendError ： send failed error code
-State code    Note
-ERROR_TEMPLATE_SEND_TIMEOUT    Send template picture timeout
+```
 
-Preview Template Picture
+###StatusChange ： sent procedure state returns status return value
+
+State code        | Note         |
+--------------------|------------------|-----------------------|
+TEMPLATE_START_SEND | start sending template images to the device  |
+TEMPLATE_SEND_LOADING     | Is sending a template image to the device  | 
+TEMPLATE_SEND_SUCCESS  | Send template pictures to device successfully     | 
+TEMPLATE_REFRESH_DEVICE     | Refresh electronic price tag screen content  |
+TEMPLATE_REFRESH_DEVICE_SUCCESS     | Electronic price tag  |
+
+###SendError ： send failed error code
+State code        | Note         |
+--------------------|------------------|-----------------------|
+ERROR_TEMPLATE_SEND_TIMEOUT | Send template picture timeout |
+
+##Preview Template Picture
+
 Description: This interface is called when the value entering the sending template interface or the input box changes (json the value changes) and previews the template display effect
-Incoming parameter: json generated by input box values
+
+**Incoming parameter: json generated by input box values**
+
+```
 1.[EPaperBlemanage shareInstance]refreshTemplate：json CallBackMsg：^(UIImage *_Nonnull templateImg){
 2.// Return the result picture and load it with UIimageview when you need to display the preview effect
 3.self.TempImg.image =templateImg;
 4.}];
+```
+
+##Status Code and Error Code
+###StatusCode status tables
+
+State value       | Note       |
+--------------------|------------------|-----------------------|
+ CONNECTION_START | Connection equipment |
+CONNECTION_SUCCESS| Connection device successfully |
+CONNECTION_GET_MSG_START| Equipment information is being obtained |
+ CONNECTION_GET_MSG_SUCCESS| Access to device information|
+ TEMPLATE_START_SEND| Start sending templates to electronic price tag devices |
+  TEMPLATE_SEND_LOADING| A template is being sent to an electronic price tag device |
+  TEMPLATE_SEND_SUCCESS| Send template to electronic price tag device successfully |
+   TEMPLATE_REFRESH_DEVICE|Refresh the electronic tag template image'|
+   TEMPLATE_REFRESH_DEVICE_SUCCESS|Refresh the electronic tag template picture|
+   
+   
+##E rrorCode Error Error Code Matching Table
 
 
+State value       | Note       |
+--------------------|------------------|-----------------------|
+ ERROR_BLE_CONNECTION_TIMEOUT| Connection Device Timeout |
+ERROR_CONNECTION_GET_DEVICE_MSG_TIMEOUT| Gets device information timeout |
+ERROR_TEMPLATE_SEND_TIMEOUT|Send template images to electronic price tag device timeout |
 
-Status Code and Error Code
-StatusCode status tables
-State value    Note
-CONNECTION_START    Connection equipment
-CONNECTION_SUCCESS    Connection device successfully
-CONNECTION_GET_MSG_START    Equipment information is being obtained
-CONNECTION_GET_MSG_SUCCESS    Access to device information
-TEMPLATE_START_SEND    Start sending templates to electronic price tag devices
-TEMPLATE_SEND_LOADING    A template is being sent to an electronic price tag device
-TEMPLATE_SEND_SUCCESS    Send template to electronic price tag device successfully
-TEMPLATE_REFRESH_DEVICE    一、Refresh the electronic tag template image'
-TEMPLATE_REFRESH_DEVICE_SUCCESS    Refresh the electronic tag template picture
+##newly added:
 
-E rrorCode Error Error Code Matching Table
-State value    Note
- ERROR_BLE_CONNECTION_TIMEOUT    Connection Device Timeout
-ERROR_CONNECTION_GET_DEVICE_MSG_TIMEOUT    Gets device information timeout
-ERROR_TEMPLATE_SEND_TIMEOUT    Send template images to electronic price tag device timeout
+###Send custom picture API
 
+###Description: Send a  picture you want to the device
 
+**Incoming parameters**
 
-newly added:
+1. peripheral 
+2. Type:Model of  your device , If it is 2.9-inch model, it is BEB029B  ,If it is 4.2-inch model, it is BER042B 
+3. sendimg: If the model is BEB029B, choose 296x128 size picture,If the model is BEB042B, choose a 400x300 size picture
 
-Send custom picture API
-
-Description: Send a  picture you want to the device
-Incoming parameters : 1.peripheral    2.Type:Model of  your device , If it is 2.9-inch model, it is BEB029B  ,If it is 4.2-inch model, it is BER042B 
-3. sendimg: If the model is BEB029B, choose 128x296 size picture,If the model is BEB042B, choose a 400x300 size picture
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+```
 1.[[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {  
 2.        //SendSuccess  
-
-3.    } Fail:^(NSString * _Nonnull errorCode) {  
+3.  } Fail:^(NSString * _Nonnull errorCode) {  
         NSLog(@"%@",errorCode);  
-4.      if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {  
+4. if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {  
 5.         
-6.      }  
+6.    }  
 7.          
-8.    }]; 
-  
-  Error Code 
-State value    Note
- FORMAT_ERROR    Incorrect picture size
-ERROR_TEMPLATE_SEND_TIMEOUT    Send template images to electronic price tag device timeout
+8.  }]; 
 
+```
+###Error Code 
+
+State value       | Note       |
+--------------------|------------------|-----------------------|
+  FORMAT_ERROR| Incorrect picture size | |
+ERROR_TEMPLATE_SEND_TIMEOUT|Send template images to electronic price tag device timeout |
