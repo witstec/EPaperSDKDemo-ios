@@ -114,9 +114,19 @@
          send image
          Peripher:Blue
          Type:Device type
-         ImageModel:
+         
+     1. ImageModel:
+     {
+     Define the parameters of the picture display effect, currently 3 types are defined
+     
+     modelone: ​​The color scale of the picture is biased towards black and white, and the red area is less displayed
+     
+     modeltwo: a display effect between modelone and modelthree
+     
+     modelthree: The display effect is brighter, the red area is displayed more, and the skin color can be displayed more naturally
+     }
          ShowImage:youimage
-                   
+     
     */
     
     [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER042B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {

@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //发送命令
 -(void)writeCharacteristic:(CBPeripheral *)peripheral characteristic:(CBCharacteristic *)characteristic
-                     value:(NSData *)value;
+                     value:(NSData *)value Success:(void(^)(NSString*Sendsuccess))success;
 
 //预览显示效果
 -(void)refreshTemplate:(NSDictionary*)inputStrJson CallBackMsg:(void(^)(UIImage*templateImg))templateImg;

@@ -237,18 +237,27 @@ ERROR_TEMPLATE_SEND_TIMEOUT | Send template images to electronic price tag devic
 1. peripheral 
 2. Type:Model of  your device , If it is 2.9-inch model, it is BEB029B  ,If it is 4.2-inch model, it is BER042B 
 3. sendimg: If the model is BEB029B, choose 296x128 size picture,If the model is BEB042B, choose a 400x300 size picture
+1. ImageModel:
+ Define the parameters of the picture display effect, currently 3 types are defined
+ 
+ modelone: ​​The color scale of the picture is biased towards black and white, and the red area is less displayed
+ 
+ modeltwo: a display effect between modelone and modelthree
+ 
+ modelthree: The display effect is brighter, the red area is displayed more, and the skin color can be displayed more naturally
+
 
 ```
-1.[[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {  
-2.        //SendSuccess  
-3.  } Fail:^(NSString * _Nonnull errorCode) {  
-        NSLog(@"%@",errorCode);  
-4. if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {  
-5.         
-6.    }  
-7.          
-8.  }]; 
-
+[[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER042B" ImageModel:"modelone" ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+           //SendSuccess
+        
+       } Fail:^(NSString * _Nonnull errorCode) {
+           
+         
+           if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {
+           }
+           
+       }];
 ```
 ### Error Code 
 
@@ -262,3 +271,4 @@ ERROR_TEMPLATE_SEND_TIMEOUT | Send template images to electronic price tag devic
 
 for example :This is Deviceid “2758007B” Its corresponding MACaddress is
 “57:54:27:58:00:7B” 
+
