@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0447A73A24EE7C6800721F83 /* EPaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447A73924EE7C6800721F83 /* EPaperSDK.framework */; };
 		0489F91C24848BC200896728 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F91B24848BC200896728 /* AppDelegate.m */; };
 		0489F91F24848BC200896728 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F91E24848BC200896728 /* SceneDelegate.m */; };
 		0489F92524848BC200896728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0489F92324848BC200896728 /* Main.storyboard */; };
@@ -17,7 +18,6 @@
 		0489F94224848BC600896728 /* EPaperBleDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F94124848BC600896728 /* EPaperBleDemoUITests.m */; };
 		0489F95324848CC300896728 /* EPaperTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F95124848CC300896728 /* EPaperTextController.m */; };
 		0489F95424848CC300896728 /* EPaperTextController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0489F95224848CC300896728 /* EPaperTextController.xib */; };
-		04D12FCE24D169D20048C966 /* EPaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D12FCD24D169D20048C966 /* EPaperSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0447A73924EE7C6800721F83 /* EPaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EPaperSDK.framework; sourceTree = "<group>"; };
 		0489F91724848BC200896728 /* EPaperBleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPaperBleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0489F91A24848BC200896728 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0489F91B24848BC200896728 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		0489F95024848CC300896728 /* EPaperTextController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPaperTextController.h; sourceTree = "<group>"; };
 		0489F95124848CC300896728 /* EPaperTextController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPaperTextController.m; sourceTree = "<group>"; };
 		0489F95224848CC300896728 /* EPaperTextController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPaperTextController.xib; sourceTree = "<group>"; };
-		04D12FCD24D169D20048C966 /* EPaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EPaperSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04D12FCE24D169D20048C966 /* EPaperSDK.framework in Frameworks */,
+				0447A73A24EE7C6800721F83 /* EPaperSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,7 @@
 		0489F91924848BC200896728 /* EPaperBleDemo */ = {
 			isa = PBXGroup;
 			children = (
-				04D12FCD24D169D20048C966 /* EPaperSDK.framework */,
+				0447A73924EE7C6800721F83 /* EPaperSDK.framework */,
 				0489F91A24848BC200896728 /* AppDelegate.h */,
 				0489F91B24848BC200896728 /* AppDelegate.m */,
 				0489F91D24848BC200896728 /* SceneDelegate.h */,

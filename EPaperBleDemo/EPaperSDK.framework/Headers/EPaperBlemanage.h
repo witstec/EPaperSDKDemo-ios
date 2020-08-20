@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EPaperBlemanage : NSObject
 @property(nonatomic,strong)CBCentralManager *centralManager;
-
+@property(nonatomic,assign)BOOL IsOpenLog;
 
 + (instancetype)shareInstance;
 

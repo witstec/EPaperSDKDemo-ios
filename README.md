@@ -272,3 +272,17 @@ ERROR_TEMPLATE_SEND_TIMEOUT | Send template images to electronic price tag devic
 for example :This is Deviceid “2758007B” Its corresponding MACaddress is
 “57:54:27:58:00:7B” 
 
+## New attribute
+```
+[EPaperBlemanage shareInstance].IsOpenLog = false;
+
+```
+
+
+### description
+1. IsOpenLog = false   
+Turn off debug log
+
+2. IsOpenLog = true
+
+Open debug log
