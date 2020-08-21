@@ -72,9 +72,9 @@
         
     
         [[EPaperBlemanage shareInstance]startScanNow:^(NSArray * _Nonnull peripheralArr) {
-         
            self.scanArr = peripheralArr;
-          
+            //
+            NSLog(@"%@",self.scanArr);
        }];
 }
 

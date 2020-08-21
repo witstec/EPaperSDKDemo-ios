@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0447A73A24EE7C6800721F83 /* EPaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447A73924EE7C6800721F83 /* EPaperSDK.framework */; };
+		0447A73C24EF66BA00721F83 /* EPaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447A73B24EF66BA00721F83 /* EPaperSDK.framework */; };
 		0489F91C24848BC200896728 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F91B24848BC200896728 /* AppDelegate.m */; };
 		0489F91F24848BC200896728 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489F91E24848BC200896728 /* SceneDelegate.m */; };
 		0489F92524848BC200896728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0489F92324848BC200896728 /* Main.storyboard */; };
@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0447A73924EE7C6800721F83 /* EPaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EPaperSDK.framework; sourceTree = "<group>"; };
+		0447A73B24EF66BA00721F83 /* EPaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EPaperSDK.framework; sourceTree = "<group>"; };
 		0489F91724848BC200896728 /* EPaperBleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPaperBleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0489F91A24848BC200896728 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0489F91B24848BC200896728 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0447A73A24EE7C6800721F83 /* EPaperSDK.framework in Frameworks */,
+				0447A73C24EF66BA00721F83 /* EPaperSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,7 @@
 		0489F91924848BC200896728 /* EPaperBleDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0447A73924EE7C6800721F83 /* EPaperSDK.framework */,
+				0447A73B24EF66BA00721F83 /* EPaperSDK.framework */,
 				0489F91A24848BC200896728 /* AppDelegate.h */,
 				0489F91B24848BC200896728 /* AppDelegate.m */,
 				0489F91D24848BC200896728 /* SceneDelegate.h */,
