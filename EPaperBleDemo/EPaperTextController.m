@@ -83,7 +83,7 @@
    
     for (NSDictionary *dic in self.scanArr) {
         //
-        if ([dic[@"mac"] isEqualToString:@"57:54:05:2D:00:02"]) {
+        if ([dic[@"mac"] isEqualToString:@"57:54:27:58:00:7B"]) {
             self.peripheral = [dic objectForKey:@"peripheral"];
             [[EPaperBlemanage shareInstance]Connection:self.peripheral ConnectionChange:^(NSString * _Nonnull status) {
             
@@ -131,7 +131,7 @@
                    
     */
      CFAbsoluteTime startTime        =CFAbsoluteTimeGetCurrent();
-     [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER042B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+     [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER029B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
               //SendSuccess
        
          CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
