@@ -21,9 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *modelone;
 @property (weak, nonatomic) IBOutlet UIButton *modeltwo;
 @property (weak, nonatomic) IBOutlet UIButton *modelthree;
-@property (nonnull ,strong) NSString *ImageModel;
+@property (nonatomic ,assign) Model ImageModel;
 @property (strong, nonatomic) UIImagePickerController *picker;
-
 
 
 @end
@@ -36,19 +35,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.picker.delegate = self;
     self.picker.allowsEditing = YES;
-    
-    
-    /*1. IsOpenLog = false
-    Turn off debug log
+    [EPaperBlemanage shareInstance].IsOpenLog = true;
 
-    2. IsOpenLog = true
-
-    Open debug log*/
-    
-    [EPaperBlemanage shareInstance].IsOpenLog = false;
-
-    // Do any additional setup after loading the view from its nib.
-    //[self mostColor:[UIImage imageNamed:@"22222"]];
     
 }
 - (UIImagePickerController *)picker
@@ -72,8 +60,8 @@
         
     
         [[EPaperBlemanage shareInstance]startScanNow:^(NSArray * _Nonnull peripheralArr) {
+         
            self.scanArr = peripheralArr;
-            //
             NSLog(@"%@",self.scanArr);
        }];
 }
@@ -83,7 +71,7 @@
    
     for (NSDictionary *dic in self.scanArr) {
         //
-        if ([dic[@"mac"] isEqualToString:@"57:54:27:58:00:7B"]) {
+        if ([dic[@"mac"] isEqualToString:@"12:9A:04:01:4B:0B"]) {
             self.peripheral = [dic objectForKey:@"peripheral"];
             [[EPaperBlemanage shareInstance]Connection:self.peripheral ConnectionChange:^(NSString * _Nonnull status) {
             
@@ -100,7 +88,6 @@
 
 
 - (IBAction)GetInformation:(UIButton *)sender {
-
            self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
            [self presentViewController:self.picker animated:YES completion:nil];
 }
@@ -128,26 +115,31 @@
          Type:Device type
          ImageModel:
          ShowImage:youimage
-                   
     */
-     CFAbsoluteTime startTime        =CFAbsoluteTimeGetCurrent();
-     [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral  Type:@"BER029B" ImageModel:self.ImageModel ShowImage:self.SendImg  Success:^(NSString * _Nonnull successCode) {
+    
+    
+    UIImage *renderImg;
+    if (self.ImageModel) {
+        renderImg = [[EPaperBlemanage shareInstance]RenderingImage:self.SendImg ImageModel:self.ImageModel];
+        
+    }else{
+        renderImg = self.SendImg;
+    }
+    
+     [[EPaperBlemanage shareInstance]SendImageToDevice:self.peripheral Type:DEVICE_042  ShowImage:renderImg  Success:^(NSString * _Nonnull successCode) {
               //SendSuccess
+         NSLog(@"%@",successCode);
        
-         CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-         NSLog(@"time %f ms", linkTime *900.0);
           } Fail:^(NSString * _Nonnull errorCode) {
               
               NSLog(@"%@",errorCode);
               if ([errorCode isEqualToString:@"FORMAT_ERROR"]) {
                   UIAlertController* alerts = [UIAlertController alertControllerWithTitle:@"" message:@"Please select a picture of 400x300" preferredStyle:UIAlertControllerStyleAlert];
-                        
+                  
                         [alerts addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil]];
-                        
                         [self presentViewController:alerts animated:YES completion:nil];
               }
-              
-        }];
+      }];
 }
 - (IBAction)modelClick:(UIButton *)sender {
     if (sender.tag == 1) {
@@ -156,17 +148,17 @@
         self.modelone.selected = YES;
         self.modeltwo.selected = NO;
         self.modelthree.selected = NO;
-        self.ImageModel = @"modelone";
+        self.ImageModel = Model_one;
     }else if (sender.tag == 2){
         self.modelone.selected = NO;
         self.modeltwo.selected = YES;
         self.modelthree.selected = NO;
-        self.ImageModel = @"modeltwo";
+        self.ImageModel = Model_two;
     }else if (sender.tag == 3){
         self.modelone.selected = NO;
         self.modeltwo.selected = NO;
         self.modelthree.selected = YES;
-        self.ImageModel = @"modelthree";
+        self.ImageModel = Model_three;
     }
 }
 
